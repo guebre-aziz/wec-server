@@ -22,7 +22,7 @@ app.use(
 );
 app.use(morgan("common"));
 
-// serve server public
+// serve server publics
 app.use("/public/", express.static(path.join(__dirname, "../../public")));
 app.use(
   "/profile/public",
@@ -33,14 +33,15 @@ app.use(
 const root = path.join(__dirname, "../../wec-client", "build");
 app.use(express.static(root));
 
-// get react app
-app.get("/", (req, res) => {
-  res.sendFile(path.resolve("index.html", { root }));
-});
-app.use(cors());
-
 // load router API v1 ----->BE AWARE CHANGING PATH <-----
 app.use("/api/v1", require("./api_v1/routers/router"));
+
+// get react app
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../../wec-client/build", "index.html"));
+});
+
+app.use(cors());
 
 app.listen(port, () => {
   console.log(`wec.server is running on ${port}`);
