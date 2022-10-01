@@ -1,11 +1,11 @@
 # weConnect [server side]
 
-weConnect's a react social web-app
+weConnect's a react social network web-app
 
 ## Description
 
 This is the server side of the project weConnect.
-It' a social platform where you can get registred, logged in, pubblic posts and follow other users.
+It' a social network  platform where you can get registred, logged in, pubblic posts and follow other users.
 
 ## Getting Started
 
